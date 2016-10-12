@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>header 正在使用版</title>
+<style type="text/css">
+body{margin:0 auto;}
+.header{
+    height: 50px;
+    background-color:#ABD1DC; 
+    text-align: center;
+    
+    box-shadow:2px 8px 15px #91AEBB; 
+
+}
+.nav{
+    font-size:12px; 
+    background-color:#ABD1DC; text-align: center;width: 1000px;
+    color: #ffeb94;position: absolute; left: 50%;margin-left: -500px;
+
+}
+
+a{text-decoration: none;color:#ffeb94;display: block;padding: 0 40px;font-size: 18px;}
+
+ul{margin:0;padding:0;list-style:none;
+font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        font:30px ;
+        }
+#navigation{background:#ABD1DC;height:50px;}
+    #navigation li{float:left;position:relative;text-align: center;}
+    #navigation a{color:#ffeb94;display:block;text-indent:1em;height:50px;padding-left:20px;line-height:50px;line-height: 50px;}
+    #navigation a:hover{background:#66a6ae;}
+    #navigation li ul li a:hover{color: #fff68f;}
+ 
+    #navigation li ul{position:absolute;top:50px;left:0;width:300px;background:#ABD1DC;padding:10px;border-bottom:solid 4px #c6ced5;display:none;opacity:0.95;}
+        #navigation li ul li{width:150px;float:left;padding: 0px;
+        }
+        
+ul li{
+    float:left;
+    padding: 0 0;  /*不用width*/
+    line-height: 50px;
+    text-align: center;
+    position: relative;
+    background:linear-gradient(to bottom,#7196A8,#ABD1DC,#7196A8) no-repeat right / 1px 15px;
+}
+.nav li:last-child{background:none;}
+    /*鼠标移上*/
+    #navigation li.show ul{display:block;}
+        #navigation li.show a{background:#66a6ae;}
+        #navigation li.show ul li a{background:#ABD1DC;}
+        #navigation li.show ul li a:hover{background:#ABD1DC; 
+        text-decoration:underline; }
+
+</style>
+<!--[if IE]>
+<style type="text/css">
+#navigation li ul{filter:alpha(opacity=95); }
+</style>
+<![endif]-->
+</head>
+<body>
+<div class="header">
+<div class="nav">
+<ul id="navigation">
+    <li>
+        <a href="../index.html" target="_blank">Home</a>
+       
+    </li>
+    <li>
+        <a href="#">Websites Making</a>
+        <ul>
+            <li><a href="#" target="_blank">menu</a></li>
+            <li><a href="#" target="_blank">menu</a></li>
+            <li><a href="#" target="_blank">menu</a></li>
+            <li><a href="#" target="_blank">menu</a></li>
+          
+            
+        </ul>
+    </li>
+    <li>
+        <a href="#" target="_blank">Photography</a>
+        <ul>
+           <li><a href="#" target="_blank">Figure</a></li>
+            <li><a href="#" target="_blank">Scenery</a></li>
+            <li><a href="#" target="_blank">Travel</a></li>    
+            
+        </ul>
+    </li>
+    <li>
+        <a href="../about.html"  target="_blank">About</a>
+    </li>
+      <li>
+        <a href="#"  target="_blank">Contact</a>
+    </li>
+      <li>
+        <a href="#"  target="_blank">Github</a>
+    </li>
+
+</ul>
+</div>
+</div>
+
+</body>
+</html>
+<script type="text/javascript">
+function init_navigation(){
+    var obj=document.getElementById("navigation");
+    var liObj=obj.getElementsByTagName("li");
+    var okLiObj=new Array();
+    var length=liObj.length;
+    var currentObj=null;
+    for(var i=0;i<length;i++){
+        currentObj=liObj[i];
+        if(currentObj.parentNode==obj){
+            okLiObj.push(currentObj);
+        }
+    }
+    length=okLiObj.length;
+    for(var i=0;i<length;i++){
+        okLiObj[i].onmouseover=function(){
+            this.className+=" show";
+        }
+        okLiObj[i].onmouseout=function(){
+            this.className=this.className.replace("show","");
+        }
+        okLiObj[i].onclick=function(){
+            this.className=this.className.replace("show","");
+        }
+    }
+}
+init_navigation();
+</script>

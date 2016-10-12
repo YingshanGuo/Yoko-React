@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Games</title>
+</head>
+<style type="text/css">
+	body{
+		margin: 0 auto;
+	}
+	 div.circle{
+            height:100px;/*与width设置一致*/
+            width:100px;
+            background:#9da;
+            border-radius:50px;/*四个圆角值都设置为宽度或高度值的一半*/
+
+        }
+        /*任务部分*/   
+        div.semi-circle{ 
+            height:100px;
+            width:50px;
+            background:#9da;
+            border-radius:50px 0 0 50px;
+            display: none;
+        }
+</style>
+<body>
+ 
+ <div class="circle" onmouseover="showsemi(this)" onmouseout="hidesemi(this)"> 
+ </div>
+ <div class="semi-circle">
+ </div>
+</body>
+<script type="text/javascript">
+	function showsemi(this){
+		var submenu=li.getElementsByTagName("ul")[0];
+		submenu.style.display="block";
+
+	}
+</script>
+</html>

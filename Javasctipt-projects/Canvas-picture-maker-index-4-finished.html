@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Emoji Editor </title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./system.css">
+    <style type="text/css">
+        #top_div {
+            position: fixed;
+            bottom: 100px;
+            right: 40px;
+            display: none;
+            width: 60px;
+            height: 60px;
+            background: #E2E6E4;
+            color: white;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='main-container '>
+        <a name="top">
+        </a>
+        <div class='container-fluid' style="background: #E2E6E4;">
+            <div class="navbar-form navbar-left">
+                <a class="title-control">Emoji Editor</a>
+            </div>
+            <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="name" value="name" />
+                </div>
+                <button type="submit" class="btn btn-success navbar-btn ">Search</button>
+            </form>
+        </div>
+        <!--end Main -->
+
+
+        <div class="content-container container-center container--x-large">
+            <!--start edit -->
+            <div class="col-sm-12 col-md-12 col-lg-12 ">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12 p-horizontal--x-large ">
+                        <h2 id="editTitle" class="p-horizontal--x-large">Emoji Editor</h2>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6 p-horizontal--x-large ">
+                        <form name="myform">
+                            <div class="col-sm-12 col-md-12 col-lg-12 p-vertical--small ">
+                                <button type="button" class="btn btn-default btn-sm ">打开本地图片</button>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12 p-vertical--small ">
+                                <label class="col-sm-12 col-md-12 col-lg-12 font-size-medium">基本设置</label>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12 p-vertical--small ">
+                                <label class="col-sm-6 col-md-6 col-lg-6">颜色主题</label>
+                                <input type="text" name="myformColorTheme" class="col-sm-6 col-md-6 col-lg-6" value="white" onkeyup="formColorTheme(this.value.trim())" />
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12 p-vertical--small ">
+                                <label class="col-sm-6 col-md-6 col-lg-6">填充颜色</label>
+                                <input type="text" name="myformBackgroundColor" class="col-sm-6 col-md-6 col-lg-6" value="#E2E6E4" onkeyup="formBackgroundColor(this.value.trim())" />
+                            </div>
+
+                            <div>
+                                <div class="col-sm-12 col-md-12 col-lg-12 p-vertical--small ">
+                                    <label class="col-sm-12 col-md-12 col-lg-12 font-size-medium">画布设置</label>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-12 p-vertical--small ">
+                                    <label class="col-sm-6 col-md-6 col-lg-6">左上角的 x 坐标</label>
+                                    <input type="number" name="myformShadowBlur " class="col-sm-6 col-md-6 col-lg-6" value="10" onkeyup=" " />
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-12 p-vertical--small ">
+                                    <label class="col-sm-6 col-md-6 col-lg-6">左上角的 y 坐标</label>
+                                    <input type="number" name="myformShadowOffsetY" class="col-sm-6 col-md-6 col-lg-6" value="10" onkeyup=" " />
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-12 p-vertical--small ">
+                                    <label class="col-sm-6 col-md-6 col-lg-6">矩形的宽度</label>
+                                    <input type="number" name="myformshadowOffsetX " class="col-sm-6 col-md-6 col-lg-6" value="250" onkeyup=" " />
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-12 p-vertical--small ">
+                                    <label class="col-sm-6 col-md-6 col-lg-6">矩形的高度</label>
+                                    <input type="number" name="myformshadowOffsetX " class="col-sm-6 col-md-6 col-lg-6" value="200" onkeyup=" " />
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="col-sm-12 col-md-12 col-lg-12 p-vertical--small ">
+                                    <label class="col-sm-12 col-md-12 col-lg-12 font-size-medium">阴影设置</label>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-12 p-vertical--small ">
+                                    <label class="col-sm-6 col-md-6 col-lg-6">阴影颜色</label>
+                                    <input type="text" name="myformShadowColor" class="col-sm-6 col-md-6 col-lg-6" value="black" onkeyup="formShadowColor(this.value.trim())" />
+                                </div>
+                                <div>
+                                    <div class="col-sm-12 col-md-12 col-lg-12 p-vertical--small ">
+                                        <label class="col-sm-6 col-md-6 col-lg-6">阴影模糊度</label>
+                                        <input type="number" name="myformShadowBlur " class="col-sm-6 col-md-6 col-lg-6" value="8" onkeyup="formShadowBlur(this.value.trim()) " />
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 col-lg-12 p-vertical--small ">
+                                        <label class="col-sm-6 col-md-6 col-lg-6">阴影垂直距离</label>
+                                        <input type="number" name="myformShadowOffsetY" class="col-sm-6 col-md-6 col-lg-6" value="10" onkeyup="formShadowOffsetY(this.value.trim())" />
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 col-lg-12 p-vertical--small ">
+                                        <label class="col-sm-6 col-md-6 col-lg-6">阴影水平距离</label>
+                                        <input type="number" name="myformshadowOffsetX " class="col-sm-6 col-md-6 col-lg-6" value="5" onkeyup="formshadowOffsetX(this.value.trim()) " />
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-12 p-vertical--small ">
+                                    <label class="col-sm-12 col-md-12 col-lg-12 font-size-medium">文本设置</label>
+                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                        <label>字体选择</label>
+                                        <select id="fontStyle" onchange="rerender()">
+                                            <option selected>Georgia</option>
+                                            <option>Verdana</option>
+                                            <option>STHeiti</option>
+                                            <option>STSong</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                        <label>字体颜色</label>
+                                        <select id="fontColor" onchange="rerender()">
+                                            <option selected>white</option>
+                                            <option>blue</option>
+                                            <option>red</option>
+                                            <option>yellow</option>
+                                            <option>grey</option>
+                                            <option>green</option>
+                                            <option>black</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                        <label>字体大小</label>
+                                        <select id="fontSize" onchange="rerender()">
+                                            <option selected>12</option>
+                                            <option>14</option>
+                                            <option>16</option>
+                                            <option>18</option>
+                                            <option>20</option>
+                                            <option>22</option>
+                                            <option>24</option>
+                                            <option>26</option>
+                                            <option>28</option>
+                                            <option>32</option>
+                                            <option>36</option>
+                                        </select>
+                                    </div>
+                                    <label class="col-sm-12 col-md-12 col-lg-12">顶部文字</label>
+                                    <textarea rows="2" id="formTopfillText" class="col-sm-12 col-md-12 col-lg-12" value="请输入文字" onkeyup="rerender()"></textarea>
+                                    <label class="col-sm-12 col-md-12 col-lg-12">底部文字</label>
+                                    <textarea rows="2" id="formBottomfillText" class="col-sm-12 col-md-12 col-lg-12" value="请输入文字" onkeyup="rerender()"></textarea>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <a type="submit" class="btn btn-primary  m-vertical--medium col-sm-6 col-md-6 col-lg-6" style="display:block;margin-left: auto;margin-right: auto;" onclick="canvasClear()">
+                                    清空
+                                    
+                            </a></div>
+                            </div>
+                        </form>
+                    </div>
+                    <!--end form Content-->
+
+                    <div class="col-sm-6 col-md-6 col-lg-6  ">
+                        <!-- style="border: 1px solid black;" -->
+                        <div class="col-md-12">
+                            <canvas id="myCanvas" height="350" class="img-control " style="border:1px solid #d3d3d3;">
+                        Sorry!Your browser does not support the HTML5 canvas tag.
+                            </canvas>
+                            <a type="submit" class="btn btn-success btn-lg m-vertical--medium" style="display:block;margin-left: auto;margin-right: auto;" onclick="toSavePic()">
+                                    下载
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--end edit -->
+            <div class="col-md-12 p-vertical--x-large">
+                <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+                    <h2> Gallery</h2>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-3 p-around--medium ">
+                    <img id="pic1" class="img-responsive img-thumbnail " alt="Responsive image " src="./images/airplane-1.jpg " onclick="choosePic(this.id)" />
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-3 p-around--medium ">
+                    <img id="pic2" class="img-responsive img-thumbnail " alt="Responsive image " src="./images/airplane-2.jpg " onclick="choosePic(this.id)" />
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-3 p-around--medium ">
+                    <img id="pic3" class="img-responsive img-thumbnail " alt="Responsive image " src="./images/airplane-3.jpg " onclick="choosePic(this.id)" />
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-3 p-around--medium ">
+                    <img id="pic4" class="img-responsive img-thumbnail " alt="Responsive image " src="./images/airplane-4.jpg " onclick="choosePic(this.id)" />
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-3 p-around--medium ">
+                    <img id="pic5" class="img-responsive img-thumbnail " alt="Responsive image " src="./images/baozou-1.jpeg " onclick="choosePic(this.id)" />
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-3 p-around--medium ">
+                    <img id="pic6" class="img-responsive img-thumbnail " alt="Responsive image " src="./images/baozou-2.png " onclick="choosePic(this.id)" />
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-3 p-around--medium ">
+                    <img id="pic7" class="img-responsive img-thumbnail " alt="Responsive image " src="./images/baozou-3.jpg " onclick="choosePic(this.id)" />
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-3 p-around--medium ">
+                    <img id="pic8" class="img-responsive img-thumbnail " alt="Responsive image " src="./images/baozou-4.jpeg " onclick="choosePic(this.id)" />
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-3 p-around--medium ">
+                    <img id="pic9" class="img-responsive img-thumbnail " alt="Responsive image " src="./images/Breakfast-1.jpg " onclick="choosePic(this.id)" />
+                </div>
+            </div>
+        </div>
+        <a href="#top">
+            <div id="top_div" class="img-thumbnail">
+                <div style="font-size: 25px;padding-top:8px;color: black;">TOP</div>
+            </div>
+        </a>
+    </div>
+
+    <script type="text/javascript">
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        var inputs = document.myform.getElementsByTagName("input");
+        var inputsValue = [];
+        var canvasPic = " ";
+        var img;
+
+
+        function init() {
+            console.log("初始化。。。。。");
+            for (var i = 0; i < inputs.length; i++) {
+                inputsValue[i] = inputs[i].value;
+            }
+            renderCanvas();
+            formFontEdit();
+            console.log("width,height", c.width, c.height);
+        }
+
+        function rerender() {
+            //c.width = Number(inputs[4].value) + 10;
+            c.height = Number(inputs[5].value) + 50;
+            console.log("width,height", c.width, c.height);
+            canvasClear();
+            renderCanvas();
+            formFontEdit();
+        }
+
+        window.onload = function() {
+            for (var i = 0; i < inputs.length; i++) {
+                inputs[i].onkeyup = function() {
+                    rerender();
+                    //renderCanvas();
+                    // setTimeout(, 3000);
+                };
+            }
+        };
+
+        function renderCanvas() {
+            for (var i = 0; i < inputs.length; i++) {
+                inputsValue[i] = inputs[i].value.trim();
+            }
+            console.log("inputsValue", inputsValue);
+            //canvasClear();
+            //模糊程度
+            if (inputsValue[6] != null && inputsValue[7] != null) {
+                ctx.shadowBlur = inputsValue[7];
+                ctx.shadowColor = inputsValue[6];
+            }
+
+            if (inputs[1].value != "") {
+                canvasPic = "";
+                ctx.fillStyle = inputsValue[1] = inputs[1].value;
+                ctx.fillRect(inputsValue[2], inputsValue[3], inputsValue[4], inputsValue[5]);
+            }
+            //填充绘画的颜色、渐变或模式
+            if (canvasPic == "isPic") {
+                ctx.drawImage(img, inputsValue[2], inputsValue[3], inputsValue[4], inputsValue[5]);
+            }
+            //笔触的颜色、渐变或模式
+            if (inputsValue[0] != null) {
+                ctx.strokeStyle = inputsValue[0];
+                ctx.strokeRect(inputsValue[2], inputsValue[3], inputsValue[4], inputsValue[5]);
+            }
+            //缩放当前绘图至更大或更小
+            //ctx.scale(2, 2);
+            //ctx.strokeRect(inputsValue[2], inputsValue[3], inputsValue[4], inputsValue[5]);
+        }
+
+        //CLEAR CANVAA
+        function canvasClear() {
+            var boxWidth = document.getElementById("myCanvas").width;
+            var boxHeight = document.getElementById("myCanvas").height;
+            ctx.clearRect(0, 0, boxWidth, boxHeight);
+        }
+
+        function formFontEdit() {
+            var objFontSize = document.getElementById("fontSize");
+            var objFontStyle = document.getElementById("fontStyle");
+            var objFontColor = document.getElementById("fontColor");
+            var objTopFillText = document.getElementById("formTopfillText");
+            var objBottomFillText = document.getElementById("formBottomfillText");
+            var formFontSize;
+            var formFontStyle;
+            var formFontColor;
+            var textTopContent = objTopFillText.value;
+            var textBottomContent = objBottomFillText.value;
+            for (i = 0; i < objFontSize.length; i++) {
+                if (objFontSize[i].selected == true) {
+                    formFontSize = objFontSize[i].innerText;
+                }
+            }
+            for (i = 0; i < objFontStyle.length; i++) {
+                if (objFontStyle[i].selected == true) {
+                    formFontStyle = objFontStyle[i].innerText;
+                }
+            }
+            for (i = 0; i < objFontColor.length; i++) {
+                if (objFontColor[i].selected == true) {
+                    formFontColor = objFontColor[i].innerText;
+                }
+            }
+            ctx.fillStyle = formFontColor;
+            ctx.font = formFontSize + "px " + formFontStyle;
+            ctx.textAlign = "center";
+            var fillTextWidth = inputsValue[4] / 2 + Number(inputsValue[3]);
+            var fillTopTextHeight = Number(inputsValue[2]) + Number(formFontSize);
+            var fillBottomTextHeight = Number(inputsValue[2]) + Number(inputsValue[5]) - Number(formFontSize);
+            ctx.fillText(textTopContent, fillTextWidth, fillTopTextHeight);
+            ctx.fillText(textBottomContent, fillTextWidth, fillBottomTextHeight);
+        }
+
+        function choosePic(id) {
+            img = document.getElementById(id);
+            if (inputsValue[4] != null) {
+                console.log("img.height", img.height, "img.width", img.width);
+
+                inputsValue[5] = inputsValue[4] * (img.height / img.width);
+                //c.width = img.width;
+                //c.height = img.height;
+                console.log("宽 & 高", inputsValue[4], inputsValue[5]);
+                inputs[5].value = inputsValue[5].toFixed(0);
+
+                ctx.drawImage(img, inputsValue[2], inputsValue[3], inputsValue[4], inputsValue[5]);
+                //c.style.width = '100%';
+                //c.style.width = inputsValue[4];
+                //c.style.height = inputsValue[5].toFixed(0);;
+            } else {
+                inputsValue[4] = (img.width) * 1;
+                inputsValue[5] = (img.height) * 1;
+                ctx.drawImage(img, inputsValue[2], inputsValue[3], inputsValue[4], inputsValue[5]);
+            }
+            canvasPic = "isPic";
+            inputs[1].value = "";
+            rerender();
+        }
+
+        function toSavePic() {
+            if (ctx == null) {
+                return false;
+            }
+            var type = 'png'; //"image/jpeg"
+            var imgData = c.toDataURL(type);
+            var w = window.open('about:blank', 'image from canvas');
+            w.document.write("<img src='" + imgData + "' alt='from canvas'/>");
+            //var w = window.open(c.toDataURL("image/jpeg"), "smallwin", "width=400,height=350");
+        }
+
+        //to top
+        window.onscroll = function() {
+            var t = document.documentElement.scrollTop || document.body.scrollTop;
+            var top_div = document.getElementById("top_div");
+            if (t >= 300) {
+                top_div.style.display = "inline";
+            } else {
+                top_div.style.display = "none";
+            }
+        }
+        init();
+    </script>
+</body>
+
+</html>

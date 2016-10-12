@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Photography Collocations</title>
+	<script src="http://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js">
+	</script>
+</head>
+<style type="text/css">
+	body{margin:0 auto;
+	}
+	a{
+		height: 20px;
+		margin: 10px 0;
+	  text-decoration: none;
+	  color: #47535e;
+	  display: block;
+	  padding:  10px 0;
+	}
+	ul, ol { list-style:none;
+		width: 250px;		
+		float: left; 
+		font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	}
+	li{
+		/*background: grey;*/
+	}
+	li a:hover{color: #fff;}
+
+#header1{
+	width: 1200px;
+	height: 200px;
+	float: left;
+	margin-top:0px;
+	/*background-color: green;*/
+}
+#header2{
+	width: 1200px;
+	height: 200px;
+	float: left;
+	margin-top:0px;
+	/*background-color: blue;*/
+}
+.nav{
+
+	height: 600px;
+}
+.navLeft{
+    width: 230px;
+    height: 100%;
+    background-color: #c6ced5;
+    float: left;
+    box-shadow:  -2px -6px 15px #808080 inset;
+}
+.navRight{
+	width: 600px;
+    
+
+    /*background-color: blue;*/
+    float: left;
+}
+#tt{
+	margin: 0 auto;
+	padding:0px;
+}
+</style>
+<body>
+<!-- 
+<div class="top"><iframe id="header" src="./headers/header.html" height="65px" width="100%" scrolling="no" style="border:0px;position: absolute; top:0px;z-index: 999999999;" mouseover="ifMouseOver()" mouseout="ifMouseOut()"></iframe> -->
+<div class="nav" id="nav">
+	<div class="navLeft" id="navLeft">
+		<ul id="navigation" >
+			<li  style="font-size:22px;">Catalog</li>
+            <li>
+        		<li  onclick="showHeader(1)"><a href="#">LARA JADE</a></li>
+        		<li  onclick="showHeader(2)"><a href="#">esteveza + belloso</a></li>
+        		<li  onclick="showHeader(3)"><a href="#">JORGE GERA </a> </li>
+        		<li  onclick="showHeader(4)"><a href="#">GREGADEL STUDIO</a> </li>
+        		<li  onclick="showHeader(5)"><a href="#">Brook Pifer</a> </li>
+        		<li  onclick="showHeader(3)"><a href="#">nickonken</a> </li>
+        		<li  onclick="showHeader(3)"><a href="#">JUCO PHOTO</a> </li>
+        		<li  onclick="showHeader(3)"><a href="#">Alixi Lubomirski</a> </li>
+
+        		<li  onclick="cleanAll()"><a href="#">Clean All</a> </li>
+    		</li>
+		</ul>
+	</div>
+
+	<div class="navRight" id="navRight">
+<ul id="tt">
+<li>
+<div id="header1"  >
+	<iframe id="iframeHeader1" src="http://larajade.co.uk/" height="600px" width="100%" scrolling="yes" style="border:0px;z-index: 999999999;"></iframe>
+</div>
+</li>
+<li>
+<div id="header2" style="display:none;">
+	<iframe id="iframeHeader2"  src="http://estevezandbelloso.com/" height="600px" width="100%" scrolling="yesi" style="border:0px;z-index: 999999999;"></iframe>
+	</div>
+</li>
+<li>
+<div id="header3" style="display:none;">
+	<iframe id="iframeHeader3"  src="http://www.jorgegera.com/#0" height="600px" width="100%"  scrolling="yes" style="border:0px;z-index: 999999999;"></iframe>
+	</div>
+</li>
+<li>
+<div id="header4" style="display:none;">
+	<iframe id="iframeHeader4"  src="http://gregkadelstudios.com/#/home/" height="600px" width="100%" scrolling="yes"  style="border:0px;z-index: 999999999;"></iframe>
+	</div>
+</li>
+<li>
+<div id="header5" style="display:none;">
+	<iframe id="iframeHeader5"  src="http://www.brookpifer.com/" height="600px" width="100%" scrolling="yes"  style="border:0px;z-index: 999999999;"></iframe>
+	</div>
+</li>
+<li>
+<div id="header6" style="display:none;">
+	<iframe id="iframeHeader6"  src="http://www.nickonken.com/www/" height="600px" width="100%" scrolling="yes"  style="border:0px;z-index: 999999999;"></iframe>
+	</div>
+</li>
+<li>
+<div id="header7" style="display:none;">
+	<iframe id="iframeHeader7"  src="http://www.jucophoto.com/fashion-commercial/" height="600px" width="100%" scrolling="yes"  style="border:0px;z-index: 999999999;"></iframe>
+	</div>
+</li>
+<li>
+<div id="header8" style="display:none;">
+	<iframe id="iframeHeader8"  src="http://www.alexilubomirski.com/photography.html" height="600px" width="100%" scrolling="yes"  style="border:0px;z-index: 999999999;"></iframe>
+	</div>
+</li>
+
+
+
+
+</ul>
+</div>
+</div>
+
+</body>
+<script type="text/javascript">
+	
+	function showHeader(num){
+		var ifHeader=document.getElementById("header"+num);
+		var ifr=document.getElementById("iframeHeader"+num);
+		cleanAll();
+		if (ifHeader.style.display=="none") {
+		ifHeader.style.display="block";	
+		ifr.style.width=(initRightWidth-230)+"px";
+	}else {
+			ifHeader.style.display="none";			
+		}
+	}
+
+function cleanAll(){
+    var lidoms = document.getElementById("tt").childNodes;
+    for(var i=0;i<lidoms.length;i++){
+        var divdoms = lidoms[i].childNodes;
+        for(var j=0;j<divdoms.length;j++){
+            if(divdoms[j].tagName == "DIV") {
+                divdoms[j].style.display='none';
+            }
+        }
+    }
+	}
+
+	var initLeftHeight=window.innerHeight; 
+	var initRightWidth=window.innerWidth; 
+
+function init(){
+	document.getElementById("nav").style.height=initLeftHeight+"px";
+	document.getElementById("navRight").style.width=(initRightWidth-250)+"px";
+	// alert(document.getElementById("nav").style.height);
+
+}
+// function ifMouseOver(){
+// document.getElementById("header").style.height="100%";
+// }
+// function ifMouseOut(){
+// document.getElementById("header").style.height="65px";
+// }
+init();
+</script>
+</html>

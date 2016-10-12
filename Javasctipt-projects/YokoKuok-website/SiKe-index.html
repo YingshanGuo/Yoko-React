@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3 3D特效</title>
+	<style type="text/css">
+     /*#container{
+     	width: 400px;
+     	height: 400px;
+     	background-color: #69e;
+     	margin: 0 auto;
+
+     	-webkit-transition:background-color 3s ease-in;
+
+     	-webkit-perspective:800;
+     	-webkit-perspective-origin:50% 50%;
+     	-webkit-transform-style: -webkit-preserve-3d;
+     }
+     #container:hover{
+     	background-color: red;
+     }*/
+     #container{
+      width: 100%;
+      height: 100%;
+    }
+    body{
+      width: 100%
+      height:100%;
+      margin: 0 auto;
+      background-color: grey;
+      overflow: hidden;
+    }
+
+    h1{
+      margin: 0 auto;
+      font-size:50px;
+      font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+      -webkit-margin-before: 1em;
+      color:white;
+      text-shadow: 1px 2px #046E71,2px 4px #057174;
+    }
+    h2,p{
+      margin: 0 auto;
+      font-size: 18px;
+      padding: 0.4em 0 ;
+    }
+    sup{
+      position: relative;
+      top: -20px;
+      font-size: 12px;
+      color: #ccc;
+      font-weight: 400;
+    }
+
+    a { text-decoration:none;}
+    #header{
+      /*-webkit-perspective:800;*/
+      -webkit-perspective-origin:50% 50%;
+      overflow: hidden;
+      -webkit-transition:background-color 3s ease-in;
+    }
+    #header:hover{
+      background-color: purple;
+    }
+    #pagegroup{
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;        
+      /*background-color: #69e;*/
+      -webkit-transform-style: preserve-3d;
+      /*position: absolute;     	*/
+      transform: translate3d(0px, 0px, 0px);  /*平面滑动*/
+      -webkit-transition:-webkit-transform 1000ms ease;
+      -webkit-transform-origin:bottom;
+    }
+    .page{
+      width: 100%;
+      height: 100%;
+      /*background-color: #3B5998;*/
+      /*font-weight:bold;*/
+      text-align: center;
+      /*position: absolute; */
+      color: white;
+    }
+    #page-content{
+      width: 100%;
+      height: 100%;
+    }
+
+    /*#page1,#page2,#page3,#page4,#page5,#page6,#page7{
+     	-webkit-transform-origin:bottom;
+     	-webkit-transition:-webkit-transform 0.5s linear;
+     	-webkit-transform:rotateX(90deg);
+        transform: translate3d(0px, 0px, 0px);
+      }*/
+
+      #page1{
+        background-color: #005774;
+        /*background: url(./images/background.png);*/
+      }
+      .home-p{
+        color: #fff;
+      }
+
+      .input-box__button{
+
+        margin: 0 auto;
+        margin-left: -8px;
+        padding: 0px;
+        color: #fff;
+        font-weight: 700;
+        width: 240px;
+        z-index: 999;
+        font-weight: 700;
+        /*background-color: #3CB8BA;*/
+        border-radius:60px;
+        line-height:2.5em;
+        font-size:16px;
+        letter-spacing: 6px;
+        background:none;
+
+        border: 3px dashed #fff;
+      }
+      .input-box__button:hover{
+        background:none;
+        letter-spacing: 1px;
+        border: 3px dashed #089093;
+        letter-spacing: 8px;
+      }
+      .nextpage-button{
+        position:absolute;
+        top: calc(100% - 50px);
+        left: calc(50% - 22px);
+        width: 40px;
+        height: 40px;
+        text-align: center;
+
+        -webkit-border-radius: 60px;
+        -moz-border-radius: 60px;
+        border-radius: 60px;
+        cursor: pointer;
+        -webkit-transition: all 0.2s;
+        transition: all 0.2s;
+        border: 2px dashed transparent;
+        z-index: 1000;
+      }
+      #page2,#page3,#page5{
+        background-color: #ECF0F1;
+        color: #313538;
+      }
+      #page4 h2{
+        /*color: #cf616f;*/
+        text-shadow: 1px 2px #22c3aa,2px 4px #69636E;
+        font-size: 32px;
+        text-align: center;
+        padding: 2em 0 1em;
+      }
+      #page2 h2{
+        font-size: 32px;
+        padding: 0.8em 0 0.5em;
+      }
+      #page2 .article-bottom{
+        margin-bottom: 10px;
+      }
+      #page3 h2,#page5 h2,#page6 h2,#page7 h2{
+        font-size: 36px;
+        padding: 1.2em 0 0.5em;
+      }
+      #page5 li{
+        font-family: Heiti SC;  
+      }
+
+      .page.leaving{background-color:#9f3}
+      #login{
+        color: #fff;
+        border: 2px solid #fff;
+      }
+      #ap{
+        margin: 0 auto;
+        text-align: center;
+        font-color:white;
+      }
+      .fd{position:fixed;width:50px;height:150px;
+        /*background:purple;*/
+        margin-top:0px;margin-left:20px;position: absolute;top: 50%;}
+        .login{
+          position:fixed;
+          width:80px;height:30px;
+          top:15px;
+          right:20px;
+          float: right; 
+          /*background:purple;*/
+          margin-top:0px;margin-left:20px;
+          text-align: center;
+        }   
+        .login a{
+          padding: 5px 15px;
+          border: 2px solid #fff;
+          color: #fff;
+        }
+
+        .file-pic{
+          width: 120px;
+          height: 120px;
+          border: 6px solid #69636E;
+        }
+        #filepic{
+   /* width: 200px;
+    height: 200px;
+    border: 10px solid #aee2d9;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;*/
+    width: 88px;
+    display: block;
+    margin: auto;
+    padding-top: 100px;
+  }
+
+  .focus-arrow a {
+    position: absolute;
+    display: block; 
+    width: 25px;     
+    height: 15px; 
+    text-indent: -999px; 
+    overflow: hidden; 
+  }
+  .focus-dot{
+    width: 25px;     
+    height: 15px; 
+    /*text-indent: -999px;*/
+    overflow: hidden; 
+  }
+  .cata-list{
+    width: 100%;
+    height: 50px;
+    background-color: #CF616F; 
+    box-shadow:2px 8px 15px #79424C; 
+  }
+  .catalog{
+    padding: 0px;
+    margin:0 auto;
+    width: 100%;
+    background-color: black;
+    text-align: center;
+  }
+  #navigation{
+    width: 800px;
+    margin: 0 auto;
+    padding: 0px;
+    text-align: center;
+    display: block;
+
+
+  }
+  #navigation li{
+    padding: 0px;
+    margin:0 auto;
+    width: 25%;
+    display: block;
+    background-color: #CF616F;
+    float: left;
+    text-align: center;
+    line-height:3em;
+    z-index: 999;
+    background: linear-gradient(to bottom,#7196A8,#ABD1DC,#7196A8) no-repeat right / 1px 15px;
+
+  }
+  #navigation li:last-child{background:none;}
+  #navigation li a{
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    font-size: 24px;
+    display: block;
+    color: white;
+    background-color: #CF616F;  /*list背景*/
+
+    /*border: 1px solid #979797;*/
+  }
+  #navigation li a:hover{
+    background-color: rgba(203,54,55,.7);
+    border-bottom:solid 4px #c6ced5;
+  }
+
+  .add-center{
+    text-align: center;
+  }
+  .add-left{
+    text-align: left;
+  }
+  .article{
+    width:600px;
+    text-align: center;
+    margin: 0px auto;      
+    line-height: 1.8;
+    /*margin-left: 200px ;
+    padding-top: 100px ;*/
+    /*background-color: purple;*/
+
+  }
+  .article-left{
+    width: 50%;
+    display: block;
+    text-align: right;   
+  }
+  .article-right{
+    width: 50%;
+    float: right;
+    text-align: left;
+  }
+  .article-top{
+    /*color: #cf616f;*/
+  }
+  .article-bottom{
+    /*text-align: left;*/
+    margin-bottom: 40px;
+  }
+  .article-bottomRight{
+    text-align: left;
+    margin-left:180px;
+  }
+  .article-bottomLeft{
+    float: left;
+    border:0;   
+
+  }
+  .article-bottomLeft img{
+    border-radius: 85px;
+  }
+  
+  @media screen and (min-width:1441px){
+    h1{font-size:60px;}
+    .home-p{font-size:20px;}
+    #page3 h2, #page5 h2, #page6 h2 {
+      font-size: 44px;
+      padding: 2em 0 1em;}
+      p{font-size: 22px;}
+
+      .article{width: 1100px;padding:100px auto;}
+      #page4 .article-pics {margin-bottom: 20px; }
+      #page4 .article-picInfo{width:80%; padding:35px 5px;}
+      #page3 .article,#page5 .article,#page7 .article{width: 800px;}
+    }
+    @media screen and (min-width: 1220px) and (max-width: 1440px){
+      .article{width: 960px;margin-top:100px auto; }
+      #page4 .article-pics { margin-bottom: 10px;}
+      #page4 .article-picInfo{width:80%; padding:20px 5px;}
+      #page3 .article,#page5 .article,#page7 .article{width: 600px;}
+
+    }
+    @media screen and (min-width: 960px) and (max-width: 1199px){
+
+    }
+    @media  screen and (min-width: 768px) and (max-width: 959px) {
+
+    }
+    @media only screen and (min-width: 480px) and (max-width: 767px) {
+      .article{width: 600px;background-color: green;}
+      #page4 .article-pics{width: 100%;}
+      #page4 .article-picInfo{ width:95%; margin-top:-80px; padding:30px 5px;}
+    }
+    @media only screen and (max-width: 479px) {
+
+    }
+    .article-pics{
+      display: block;
+      margin: auto;
+      width: 45%;
+      position: relative;
+      margin-bottom: 30px;
+      padding: 10px;
+      display: inline;
+      float: left;
+      cursor: pointer;
+      border-bottom: none;
+      text-decoration: none;
+
+
+    }
+    .article-pic img{
+      width: 100%;
+    }
+    .article-picInfo{
+      background: rgba(255,255,255,0.98);
+      position: relative;
+      width: 90%;
+      margin: auto;
+      margin-top: -60px;
+      padding: 30px 5px;
+      text-align: center;
+      color: grey;
+    }
+    .prev-button{
+      position:fixed;
+      top: 30px;
+      left: 30px;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.15);
+      -webkit-border-radius: 60px;
+      -moz-border-radius: 60px;
+      border-radius: 60px;
+      cursor: pointer;
+      -webkit-transition: all 0.2s;
+      transition: all 0.2s;
+      border: 2px dashed transparent;
+      z-index: 1000;
+    }
+    .next-button{
+      position:fixed;
+      top: calc(100% - 70px);
+      left: 30px;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.15);
+      -webkit-border-radius: 60px;
+      -moz-border-radius: 60px;
+      border-radius: 60px;
+      cursor: pointer;
+      -webkit-transition: all 0.2s;
+      transition: all 0.2s;
+      border: 2px dashed transparent;
+      z-index: 1000;
+    }
+
+    .cata-lists{
+      top: 50%;
+      right: 150px;
+      width: 200px;
+      height: 100px;
+      background-color: #CF616F; 
+      box-shadow:2px 8px 15px #79424C; 
+    }
+
+    #pagination{  
+      /*background-color: purple;*/
+      position:fixed;
+      right: 10px;
+      top: 50%;
+      z-index: 5;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      margin-top: -72px; 
+
+    }
+    #pagination  li{
+      padding: 6px;
+      text-align: center;
+      list-style: none;
+      width: 4px;
+      height:4px;
+    } 
+
+    #pagination  li a{
+      content: '';
+      position: absolute;
+      width: 4px;
+      height:4px;
+      background: rgba(0,0,0,0.85);
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      background: #ecf0f1;
+      /*left: 22px;*/
+    }
+    #pagination  li.show a{
+      width: 10px;
+      height: 10px;
+      background: none;
+      /*border: 1px solid black;*/
+      margin-top: -4px;
+      /*left: 18px;*/
+      left: 44px;
+      background: #ecf0f1;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <div id="container">
+   <div id="top">
+
+   </div>
+   <!--end top-->
+   <div id="header">
+    <div id="pagegroup"  style="float:left;position: absolute;"> 
+      <div class="page" id="page1" style="z-index: 7; ">      
+        <div class="page-content" >
+          <!-- style="background:url(./images/backgroundPaper.png);width:100%;height:100%"" -->
+          <img id="filepic" src="images/logo.svg" style="width:120px;">
+          <h1>满足您的技术情怀</h1>
+          <p class="home-p">专注 JavaScript 全栈教学</p>
+          <form style="margin-top:70px;">
+
+            <input class="input-box__button" type="submit" value="免费试学">  
+          </form>
+          <div class="nextpage-button "> 
+           <img src="./images/arrownext.svg" onclick="next()" style="width:18px;padding-top:14px;">
+         </div>
+       </div>
+     </div>
+
+     <div class="page" id="page2" style="z-index: 6; ">   
+       <!--<div class="catalog">
+         <div class="cata-list">
+        <ul id="navigation">
+            <li>
+                 <a href="#" target="_blank">Web 开发基础系列</a>       
+            </li>
+             <li>
+                 <a href="#" target="_blank">React </a>       
+            </li>
+             <li>
+                 <a href="#" target="_blank">Node.js 系列</a>       
+            </li>
+             <li>
+                 <a href="#" target="_blank">母鸡</a>       
+            </li>
+        </ul>
+      </div>  
+    </div>    -->
+
+    <div class="page-content">
+      <div class="article">
+        <div class="article-top">
+          <div class="article-top add-center">
+            <h2>想学东西，不知道哪里着手?</h2>
+          </div>
+          <div class="article-bottom add-center">
+            <p>我们是幸运的一代， </p>
+
+            <p>想学技术在互联网上有非常丰富的资源，</p>
+
+            <p>可以读书、看视频、读博文、参与开源软件。</p>
+
+            <p>但面对各式各样的选择，</p>
+
+            <p>反而想学东西不知道从哪里着手。</p>
+          </div>
+        </div>
+        <div class="article-bottom add-center">
+          <div class="article-top add-center">
+            <h2>自学的路漫长而艰难</h2>
+          </div>
+          <div class="article-bottom add-center">
+            <p>是不是觉得自己学的很慢？</p>
+
+            <p>遇到问题不好意思问？</p>
+
+            <p>身边没有共同学习的小伙伴？</p>
+
+            <p>学习注意力分散，无法静下心学习？</p>
+
+            <p>看了书但还是缺少实战经验？</p>  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page" id="page3" style="z-index: 5; ">
+
+    <div class="page-content">
+      <div class="article">
+       <div class="article-top">
+        <h2>远程学徒式教学<sup>TM</sup></h2> 
+      </div>
+      <div class="article-bottom add-left">
+        <p>　　思客的教学方法是以远程工作的模式来做一个项目，以实战加快对技术的熟练度。我当客人，你当远程工作者来满足项目需求。我会提交功能需求由你来完成。同时我也会发给你博文和文档，学习代码实现的相关知识。<br>
+          　　书本和视频都是相对被动的学习方式，看过了容易忘，也说不准自己理解地到不到位。
+          <strong>边学边做会更好，因为在实现项目的过程中很容易就可以暴露出没有理解清楚的概念。</strong>你不需要问自己懂不懂，只要看做不做得出来。</p>
+          <p><strong>　　自学才是最好的学习方式。</strong></p>
+        </div>
+      </div>
+     <!--  <div class="">
+        <ul id="nav">
+          <li>
+           <a href="#" target="_blank">设计</a>       
+         </li>
+         <li>
+           <a href="#" target="_blank">前端</a>       
+         </li>
+         <li>
+           <a href="#" target="_blank">React</a>       
+         </li>
+         <li>
+           <a href="#" target="_blank">NodeJS</a>       
+         </li>
+       </ul>
+     </div> -->
+   </div>
+ </div>		
+ <div class="page" id="page4" style="z-index: 4; ">
+
+  <div class="page-content">
+
+    <div class="article" > <!-- style="text-align:center;width:1100px;" -->
+      <div class="article-pics">
+        <div class="article-pic">
+          <img src="./images/pic.jpg">
+        </div>
+        <div class="article-picInfo">
+          <p>Web 开发基础系列</p>   
+        </div> 
+      </div>
+
+      <div class="article-pics">
+        <div class="article-pic">
+          <img src="./images/gesa.jpg">
+        </div>
+        <div class="article-picInfo">
+          <p>React 全端开发系列</p>   
+        </div> 
+      </div>
+
+      <div class="article-pics">
+        <div class="article-pic">
+          <img src="./images/sara.jpg">
+        </div>
+        <div class="article-picInfo">
+          <p>Node.js 系列</p>   
+        </div> 
+      </div>
+
+      <div class="article-pics">
+        <div class="article-pic">
+          <img src="./images/alino.jpg">
+        </div>
+        <div class="article-picInfo">
+          <p>UI设计 系列</p>   
+        </div> 
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="page" id="page5" style="z-index: 3; ">
+
+  <div class="page-content">
+    <div class="article">
+     <div class="article-top">
+      <h2>学习的方法决定效果</h2>  
+    </div>
+    <div class="article-bottom add-left">
+      <p>　　学好技术要靠耐心，一点一滴的累积经验。但除了时间的投入之外，学习的方法是区分优秀和平庸最大的因素。在自学的过程你可能走了很多弯路。浪费很多时间解决没有意义的问题，穷折腾。这些都是经验，但不是特别有用的经验。</p>
+      <p>　　经验是不可替代的。<strong>如果你能加入一个靠谱的技术团队，那么实际操作项目肯定是最好的学习方式。</strong> 但是在你自己技术水平还没到位之前，要找到一个靠谱的技术团队是一个困难的问题。</p>   
+    </div> 
+  </div>
+</div>
+</div>
+<div class="page" id="page6" style="z-index: 2; ">
+
+  <div class="page-content">
+    <div class="article">
+      <div class="article-top" style="margin-left:180px;text-align:left;">
+        <h2>导师简介</h2>
+      </div>
+      <div class="article-bottom">
+        <div class="article-bottomLeft">
+          <img class="file-pic" alt="avatar" src="./images/howard.png">
+          <p>Howard</p>
+        </div>
+
+        <div class="article-bottomRight">
+          <p>　　我叫 Howard，台湾同胞一枚。小时候随家人移民加拿大。
+            2011 年远程工作，边旅行边赚钱。那一年第一次来到了天朝。我写了篇有关这个经历的博文From The Office to Travelling The World 。</p>
+            <p>　　2012 年觉得生活太安逸，决定来中国发展，发现难度瞬间提升为 Hard。在深圳和朋友创立了小象网 ，做创意纸品，婚纱相册之类的产品。现在已盈利，处稳定发展状态。</p>
+            <p>　　2013 夏，搬到成都和女朋友在一起。</p>
+          </div>
+        </div>
+
+        <div class="article-bottom">
+           <div class="article-bottomLeft" >
+            <img class="file-pic" alt="avatar" src="./images/ljh.png">
+            <p>利嘉豪</p>
+          </div>
+          <div class="article-bottomRight" >
+            <p>　　高中的时候机缘巧合因为参加机器人世界杯 (Robocup) 入了工程学的坑，后来去了伯克利加州大学读 MechE 和 EECS 。大一开始参与多个硅谷的创业公司，从实习生做到 Chief Engineer ，大三辍学回国创业。</p>
+
+              <p>　　在广州创立了东西科技，开发了一系列软件硬件项目。业余时间发起了广州创客马拉松和 Hack4GZ 。
+            </p>
+          </div>
+        </div>
+
+        
+
+      </div>
+    </div>
+  </div>
+
+  <div class="page" id="page7" style="z-index: 1; ">
+
+    <div class="page-content">
+      <div class="article">
+     <div class="article-top">
+      <h2>在思客学习的优势</h2>  
+    </div>
+    <div class="article-bottom add-left">
+      <p>　　比起其他教学网站,我们更注重自己动手。授课方式的话是我把要做的功能拆分成任务,每个任务介绍需要的知识点和实现思路,然后你就自己去实现。</p>
+
+      <p><strong>　　思客提供一个开放,启发性更强的学习环境,给你空间自主学习。</strong>我们的课程不提供可以直接复制粘贴的代码。你会有很多的机会做代码练习。当你做练习遇到问题,我们也不会直接给你答案。我们会适当地给你提示,或者更深入的参考资料,让你自己解决问题。</p>
+
+      <p>　　只要你有自学的动力,我们愿意为你的学习旅途一路护航!</p>   
+    </div> 
+  </div>
+    </div>
+  </div>
+
+</div>
+
+   <!--  <div class="prev-button ">         
+        <img src="./images/arrow.svg" onclick="prev()" style="width:18px;padding-top:14px;">
+    </div>
+    <div class="next-button "> 
+     <img src="./images/arrownext.svg" onclick="next()" style="width:18px;padding-top:14px;">
+   </div>  	 -->
+
+   <div id="pagination">
+    <ul >
+      <li class="page-li" onclick="toPage(1)"><a href="#1"></a></li>
+      <li class="page-li" onclick="toPage(2)"><a href="#2"></a></li>
+      <li class="page-li" onclick="toPage(3)"><a href="#3"></a></li>
+      <li class="page-li" onclick="toPage(4)"><a href="#4"></a></li>
+      <li class="page-li" onclick="toPage(5)"><a href="#5"></a></li>
+      <li class="page-li" onclick="toPage(6)"><a href="#6"></a></li>
+      <li class="page-li" onclick="toPage(7)"><a href="#7"></a></li>
+    </ul>
+  </div>
+
+  <div class="login">
+    <div >
+      <a id="login" href="http://app.sike.io/login">登录</a>
+    </div>
+  </div>
+</div>
+<!--end header-->
+
+<div id="footer">
+
+</div>
+<!--end footer-->
+</div>
+<!--end container-->
+</body>
+</html> 
+
+<script type="text/javascript">
+  var lastAnimation = 0;
+  var scrollDelay = 600;
+  var scrollingSpeed=300;
+
+  var scrollFunc = function (e) {
+    var direct = 0;
+    e = e || window.event;
+    if (isMoving()) {
+      return;
+    }
+        if (e.wheelDelta) {  //判断浏览器IE，谷歌滑轮事件             
+            if (e.wheelDelta > 0) { //当滑轮向上滚动时
+              prev();
+              return;
+                // alert("滑轮向上滚动");
+              }
+            if (e.wheelDelta < 0) { //当滑轮向下滚动时
+                // alert("IE瀏覽器");
+                next();
+                return;
+                // alert("滑轮向下滚动");
+              }
+        } else if (e.detail) {  //Firefox滑轮事件
+            if (e.detail> 0) { //当滑轮向上滚动时
+              prev();
+              return;
+                // alert("滑轮向上滚动");
+              }
+            if (e.detail< 0) { //当滑轮向下滚动时
+                // alert("火狐瀏覽器");
+                next();
+                return;
+                // alert("滑轮向下滚动");
+              }
+            }
+            ScrollText(direct);
+          }
+    //给页面绑定滑轮滚动事件
+    if (document.addEventListener) {
+      document.addEventListener('DOMMouseScroll', scrollFunc, false);
+    }
+    //滚动滑轮触发scrollFunc方法
+    window.onmousewheel = document.onmousewheel = scrollFunc;  
+
+    function isMoving(){
+      var timeNow = new Date().getTime();
+            // Cancel scroll if currently animating or within quiet period
+            if (timeNow - lastAnimation < scrollDelay + scrollingSpeed) {
+              return true;
+            }
+            return false;
+          }
+
+          var curIndex=1;
+          var curPage=document.getElementById("pagegroup");
+          function next(){
+            if(curIndex==7){       
+              hidePageDot(curIndex-1);
+              curPage.style.transform="translate3d(0px,0%,0px)";       
+              curIndex=1;
+              showPageDot(0);
+              var timeNow = new Date().getTime();
+              lastAnimation=timeNow;
+              return;
+            }
+            curPage.style.transform="translate3d(0px,"+(-100*curIndex)+"% , 0px)";
+            hidePageDot(curIndex-1);
+            /*去掉的页面*/  
+            changeDotColor(curIndex+1);
+            showPageDot(curIndex);
+            curIndex ++;          
+            var timeNow = new Date().getTime();
+            lastAnimation=timeNow;
+          }
+
+          function prev(){
+           if(curIndex==1){      
+            hidePageDot(0);   
+            curPage.style.transform="translate3d(0px,-600%,0px)";                
+            curIndex=7;
+            showPageDot(curIndex-1);
+            var timeNow = new Date().getTime();
+            lastAnimation=timeNow;
+            return;
+          }
+            // var curPageNext==document.getElementById("page"+(curIndex+1));
+            // curPage.style.webkitTransform="rotateX(90deg)";
+            curPage.style.transform="translate3d(0px,"+(-100*(curIndex-2))+"% , 0px)";
+            hidePageDot(curIndex-1);
+            changeDotColor(curIndex-1);
+            curIndex--;
+            showPageDot(curIndex-1);
+            var timeNow = new Date().getTime();
+            lastAnimation=timeNow;
+          }
+
+//     var initLeftHeight=window.innerHeight; 
+//     var initRightWidth=window.innerWidth; 
+
+//     function init(){
+//     document.getElementById("pagegroup").style.height=initLeftHeight+"px";
+//     document.getElementById("pagegroup").style.width=initRightWidth+"px";
+//     document.getElementById("page-content").style.width=initRightWidth+"px";
+//     document.getElementById("page-content").style.width=initRightWidth+"px";
+//     alert(document.getElementById("nav").style.height);
+// }
+// init();
+
+
+
+var obj=document.getElementById("pagination");
+var liObj=obj.getElementsByTagName("li");
+var login=document.getElementById("login");
+var aliObj=new Array();
+for (var i =0;i< liObj.length; i ++) {
+      aliObj.push(liObj[i].firstChild);
+}
+
+
+function initShowPageDot( ){
+  liObj[0].className+=" show";   
+}
+
+function showPageDot(num){
+  liObj[num].className+=" show";   
+}
+
+function hidePageDot(num){
+  liObj[num].className=liObj[num].className.replace("show","");
+}
+
+function toPage(num){
+  var paging=0;
+  paging=num-curIndex;
+  if(paging>=0){
+    for(var i=0;i<paging;i++){
+     next();
+   }
+   curIndex=num;
+   return;
+ }else{
+  paging=curIndex-num;
+  for(var i=0;i<paging;i++){
+   prev();
+ }
+ curIndex=num;
+ return;}
+}
+
+function changeDotColor(num){
+  if(num==2||num==3||num==5){
+    for (var i =0;i< liObj.length; i ++) {
+      aliObj[i].style.backgroundColor="#000";
+    }
+    login.style.color="#000";
+    login.style.borderColor="#000";
+  }else{
+    for(var i=0;i<liObj.length;i++){
+      aliObj[i].style.backgroundColor="#ecf0f1";
+  }login.style.color="#ecf0f1";
+  login.style.borderColor="#ecf0f1";
+}
+}
+
+initShowPageDot();
+
+</script>

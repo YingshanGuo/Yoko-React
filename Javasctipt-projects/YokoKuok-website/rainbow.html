@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Rainbow</title>
+</head>
+<style type="text/css">
+	body{
+		margin: 0 auto;
+	}
+	.wholePage{
+		position:absolute;width:1200px;left:50%;top:100px;margin-left:-600px;
+		/*background-color: grey;*/
+		
+	}
+	.name{
+		width: 1000px;
+		height: 700px;
+		text-align: center;
+		margin-top: 50px;
+	}
+	 @font-face {
+            font-family: "FZSTK Font";
+            src: url("./FZSTK.ttf");
+        }
+        .fontFace{
+            width: 340px;
+            padding:  10px 0;
+            font-size:58px;
+            font-family: "FZSTK Font";    /*必须项，设置@font-face中font-family同样的值*/
+        }
+	.rainbow{
+		margin: 0 auto;
+     	-webkit-transform-style: preserve-3d;
+     	position: relative;
+     	text-align: center;
+     	
+        
+        
+        /*在网页中居中显示*/
+        
+        -webkit-transform:rotateZ(180deg);
+        /*注意：这一页是反过来的哟*/
+
+	}
+	.pagegroup{
+	       
+	position: absolute;top: 0;
+
+     	
+
+
+	}
+	.page{
+		width: 100px;
+		height: 100px;
+		background-color: #3B90B2;
+		color: #fff;
+		float: left;
+		margin:0 20px ; 
+		text-align: center;
+		
+		bottom:0;
+        
+		/*设置3D场景*/
+       /* -webkit-perspective:800px;
+        -webkit-perspective-origin:50% 50%;
+        -webkit-transform:rotateY(45deg);
+        -webkit-transform:rotateX(45deg);*/
+	
+	}
+	
+	.sumUp{
+		width: 80px;
+		margin-top: 20px;
+ 		float: right;
+ 		/*background-color: grey;*/
+ 		color: black;
+	}
+	#page1{
+     	-webkit-transition:background-color 3s ease-in;
+		-webkit-transition:height 5s ease-in;
+	}
+	#page1:hover{
+     	background-color:#8192D6 !important;
+     	height: 800px !important;
+     	-webkit-transform:rotateY(10deg);
+
+	}
+	#page2{
+     	-webkit-transition:background-color 2s ease-in;
+		-webkit-transition:height 1s ease-in;
+	}
+	#page2:hover{
+     	background-color:#00B0F0 !important;
+     	height: 800px !important;
+     	-webkit-transform:rotateY(10deg);
+	}
+	#page3{
+     	-webkit-transition:background-color 0.5s ease;
+		-webkit-transition:height 4s ease;
+	}
+	#page3:hover{
+     	background-color:#009FAB !important;
+     	height: 800px !important;
+     	-webkit-transform:rotateY(10deg);
+	}
+	#page4{
+     	-webkit-transition:background-color 5s ease-in;
+		-webkit-transition:height 2s ease-in;
+		-webkit-transform:rotateX(0deg);
+		-webkit-transform-origin:bottom;
+	}
+	#page4:hover{
+     	background-color:#00B38C !important;
+     	height: 800px !important;
+     	-webkit-transform:rotateX(-180deg);
+     	-webkit-transform:rotateY(10deg);
+     	
+     	
+	}
+	#page5{
+     	-webkit-transition:background-color 10s ease-out;
+		-webkit-transition:height 7s ease-out;
+	}
+	#page5:hover{
+     	background-color:#FFEB94 !important;
+     	height: 800px !important;
+     	-webkit-transform:rotateY(10deg);
+	}
+	#page6{
+     	-webkit-transition:background-color 10s linear;
+		-webkit-transition:height 5s linear;
+	}
+	#page6:hover{
+     	background-color:#F2753F !important;
+     	height: 800px !important;
+     	-webkit-transform:rotateY(20deg);
+	}
+
+	#page7{
+     	-webkit-transition:background-color 3s ease-in-out;
+		-webkit-transition:height 5s ease-in-out;
+	}
+	#page7:hover{
+     	background-color:#F44336 !important;
+     	height: 800px !important;
+     	-webkit-transform:rotateX(10deg);
+	}
+
+</style>
+<body>
+<div class="container">
+	<iframe src="./headers/header.html" height="100px" width="100%" scrolling="no" style="border:0px;position: absolute; top:0px;z-index: 999999999;"></iframe>
+ <div class="wholePage">
+ <div class="name fontFace">Rainbow</div>
+ <div class="rainbow ">
+ <div class="pagegroup"> 
+
+		<img src="./images/timg.jpg" onclick="show()" width="100px" height="100px" style="-webkit-transform:rotateZ(180deg);position:relative; bottom 0;margin-left:20px;"> 
+		<div class="page" id="page1" style="height:100px;"></div> <!-- 为什么在#page1设置height会失败？ -->
+		<div class="page" id="page2"></div>
+		<div class="page" id="page3"></div>
+		<div class="page" id="page4"></div>
+		<div class="page" id="page5"></div>
+		<div class="page" id="page6"></div>
+		<div class="page" id="page7"></div>
+</div>
+</div>
+
+<div class="sumUp">
+<span>
+	
+	<a href="#" onclick="openwindow('rainbow-SumUp.html','Rainbow Sum Up',1250,600)">Sum Up</a>
+</span>
+</div>
+
+</div>
+</div>
+	
+</body>
+<script type="text/javascript">
+function openwindow(url,name,iWidth,iHeight)
+{
+var url; //转向网页的地址;
+var name; //网页名称，可为空;
+var iWidth; //弹出窗口的宽度;
+var iHeight; //弹出窗口的高度;
+//window.screen.height获得屏幕的高，window.screen.width获得屏幕的宽
+var iTop = (window.screen.height-30-iHeight)/2; //获得窗口的垂直位置;
+var iLeft = (window.screen.width-10-iWidth)/2; //获得窗口的水平位置;
+window.open(url,name,'height='+iHeight+',,innerHeight='+iHeight+',width='+iWidth+',innerWidth='+iWidth+',top='+iTop+',left='+iLeft+',toolbar=no,menubar=no,scrollbars=auto,resizeable=no,location=no,status=no');
+}
+function show(){
+if(document.getElementById("page1").style.height=="100px"){
+	document.getElementById("page1").style.height='300px';
+	document.getElementById("page1").style.backgroundColor='#8192D6';
+	document.getElementById("page2").style.height='450px';
+	document.getElementById("page2").style.backgroundColor='#00B0F0';
+	document.getElementById("page3").style.height='600px';
+	document.getElementById("page3").style.backgroundColor='#009FAB';
+	document.getElementById("page4").style.height='750px';
+	document.getElementById("page4").style.backgroundColor='#00B38C';
+	document.getElementById("page5").style.height='650px';
+	document.getElementById("page5").style.backgroundColor='#FFEB94';
+	document.getElementById("page6").style.height='250px';
+	document.getElementById("page6").style.backgroundColor='#F2753F';
+	document.getElementById("page7").style.height='450px';
+	document.getElementById("page7").style.backgroundColor='#F44336';
+}else {
+    document.getElementById("page1").style.height='100px';
+	document.getElementById("page1").style.backgroundColor='#8192D6';
+	document.getElementById("page2").style.height='100px';
+	document.getElementById("page2").style.backgroundColor='#00B0F0';
+	document.getElementById("page3").style.height='100px';
+	document.getElementById("page3").style.backgroundColor='#009FAB';
+	document.getElementById("page4").style.height='100px';
+	document.getElementById("page4").style.backgroundColor='#00B38C';
+	document.getElementById("page5").style.height='100px';
+	document.getElementById("page5").style.backgroundColor='#FFEB94';
+	document.getElementById("page6").style.height='100px';
+	document.getElementById("page6").style.backgroundColor='#F2753F';
+	document.getElementById("page7").style.height='100px';
+	document.getElementById("page7").style.backgroundColor='#F44336';
+	 
+}
+
+   
+}
+
+</script>
+</html>

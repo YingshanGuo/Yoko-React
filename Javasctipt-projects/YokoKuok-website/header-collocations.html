@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Header Collocations</title>
+	<script src="http://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js">
+	</script>
+</head>
+<style type="text/css">
+	body{margin:0 auto;
+	}
+	a{
+		height: 20px;
+		margin: 10px 0;
+	  text-decoration: none;
+	  color: #47535e;
+	  display: block;
+	  padding:  10px 0;
+	}
+	ul, ol { list-style:none;
+		width: 250px;		
+		float: left; 
+		font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	}
+	li{
+		/*background: grey;*/
+	}
+	li a:hover{color: #fff;}
+
+#header1{
+	width: 1200px;
+	height: 200px;
+	float: left;
+	margin-top:0px;
+	/*background-color: green;*/
+}
+#header2{
+	width: 1200px;
+	height: 200px;
+	float: left;
+	margin-top:0px;
+	/*background-color: blue;*/
+}
+.nav{
+
+	height: 600px;
+}
+.navLeft{
+    width: 270px;
+    height: 100%;
+    background-color: #c6ced5;
+    float: left;
+    box-shadow:  -2px -6px 15px #808080 inset;
+}
+.navRight{
+	width: 100px;
+    
+
+    /*background-color: blue;*/
+    float: left;
+}
+#tt{
+	margin: 0 auto;
+	padding:0px;
+}
+</style>
+<body>
+<!-- 
+<div class="top"><iframe id="header" src="./headers/header.html" height="65px" width="100%" scrolling="no" style="border:0px;position: absolute; top:0px;z-index: 999999999;" mouseover="ifMouseOver()" mouseout="ifMouseOut()"></iframe> -->
+<div class="nav" id="nav">
+	<div class="navLeft" id="navLeft">
+		<ul id="navigation" >
+			<li  style="font-size:22px;">Catalog</li>
+            <li>
+        		<li  onclick="showHeader1()"><a href="#">header-1  倾斜的menu </a></li>
+        		<li  onclick="showHeader2()"><a href="#">header-2  美国白宫menu设计</a> </li>
+        		<li><a href="#">header-3</a> </li>
+        		<li  onclick="cleanAll()"><a href="#">Clean All</a> </li>
+    		</li>
+		</ul>
+	</div>
+
+	<div class="navRight" id="navRight">
+<ul id="tt">
+<li>
+<div id="header1" onclick="showHeader1()" style="display:none;">
+	<iframe id="iframeHeader1" src="./headers/header-1.html" height="600px" width="100%" scrolling="no" style="border:0px;z-index: 999999999;"></iframe>
+</div>
+</li>
+
+<li>
+<div id="header2" onclick="showHeader2()">
+	<iframe id="iframeHeader2"  src="./headers/header-2.html" height="600px" width="100%" scrolling="no" style="border:0px;z-index: 999999999;"></iframe>
+	</div>
+</li>
+
+</ul>
+</div>
+</div>
+
+</body>
+<script type="text/javascript">
+	var ifHeader1=document.getElementById("header1");
+	var ifHeader2=document.getElementById("header2");
+	
+	function showHeader1(){
+		cleanAll();
+		if (ifHeader1.style.display=="none") {
+		ifHeader1.style.display="block";	
+	}else {
+			ifHeader1.style.display="none";			
+		}
+	}
+
+	function showHeader2(){		
+		cleanAll();
+		if (ifHeader2.style.display=="none") {
+		ifHeader2.style.display="block";
+	}else {
+			ifHeader2.style.display="none";
+		}
+	}
+
+function cleanAll(){
+    var lidoms = document.getElementById("tt").childNodes;
+    for(var i=0;i<lidoms.length;i++){
+        var divdoms = lidoms[i].childNodes;
+        for(var j=0;j<divdoms.length;j++){
+            if(divdoms[j].tagName == "DIV") {
+                divdoms[j].style.display='none';
+            }
+        }
+    }
+	}
+
+
+function init(){
+	var initHeight=window.innerHeight; 
+	document.getElementById("nav").style.height=initHeight+"px";
+	alert(document.getElementById("nav").style.height);
+}
+// function ifMouseOver(){
+// document.getElementById("header").style.height="100%";
+// }
+// function ifMouseOut(){
+// document.getElementById("header").style.height="65px";
+// }
+init()
+</script>
+</html>

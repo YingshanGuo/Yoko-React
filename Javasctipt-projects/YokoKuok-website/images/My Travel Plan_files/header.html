@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)file:///C:/Users/Yoko/Desktop/YokoKuok/header.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>header</title>
+<style type="text/css">
+/*初始化*/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
+body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }
+h1, h2, h3, h4, h5, h6{ font-size:100%; }
+address, cite, dfn, em, var { font-style:normal; }
+code, kbd, pre, samp { font-family:couriernew, courier, monospace; }
+small{ font-size:12px; }
+ul, ol { list-style:none; }
+/*a { text-decoration:none; }
+a:hover { text-decoration:underline; }*/
+sup { vertical-align:text-top; }
+sub{ vertical-align:text-bottom; }
+legend { color:#000; }
+fieldset, img { border:0; }
+button, input, select, textarea { font-size:100%; }
+table { border-collapse:collapse; border-spacing:0; }
+
+a{text-decoration: none;color:#eed7a3;display: block;padding: 0 40px;font-size: 18px;}
+a:hover{/*color:#ffffff; background-color:grey;*/
+ -webkit-transform:rotate(10deg);
+		  -moz-transform:rotate(10deg);
+		  -o-transform:rotate(10deg);
+		  -ms-transform:rotate(10deg);
+		  transform:rotate(10deg);
+}
+ul{
+    	list-style: none;
+    	margin: 0 auto;
+    }
+ul li{
+    	float:left;
+    	padding: 0 0;  /*不用width*/
+    	line-height: 50px;
+    	text-align: center;
+    	position: relative;
+    	background:linear-gradient(to bottom,#7196A8,#ABD1DC,#7196A8) no-repeat right / 1px 15px;
+
+    	
+    }
+    .nav li:last-child{background:none;}
+
+ul li ul li{float: none;background-color:grey;color:#ffffff ;margin-top:1px;}
+ul li ul li a:hover{color:#FFF68F;}
+/*定位二级菜单到一级菜单下*/    /*隐藏二级菜单*/
+ul li ul{position: absolute;top:50px;left: 0px;display: none;}   
+/*ul li:hover ul{display: block; } */ /*display: none;后无法显示*/
+	body{
+    	margin: 0 auto;
+		padding:0px;
+		margin-left:0px; 
+
+    }
+    
+	.header{
+		background-color:#ABD1DC ; /*#FFF68F*/
+		margin-left: 0px;
+		padding:0px;
+
+	}
+	.nav{
+		/*background-color: grey;*/
+		width:1000px;
+		height: 50px;
+		margin: 0 auto;
+
+
+	}
+	.inlineDiv{
+		display:inline;
+		line-height:50px;
+		color:#000000;
+	}
+	ul.fontLucida{
+		font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+		font:30px ;
+}
+</style></head>
+
+<body>
+    <div class="header ">
+	<div class="nav">
+		<ul class="fontLucida">
+		    <li class="inlineDiv "> <a href="file:///C:/Users/Yoko/Desktop/YokoKuok/index.html" target="_blank">Home </a></li>
+			<li class="inlineDiv" onmouseover="showsubmenu(this)" onmouseout="hidesubmenu(this)"> <a href="#" target="_blank">Websites Making</a>
+				<ul>
+					<li><a href="#" target="_blank"></a></li>
+					
+				</ul>
+			</li>
+			<li class="inlineDiv" onmouseover="showsubmenu(this)" onmouseout="hidesubmenu(this)"> <a href="#" target="_blank">Photography </a></li>
+			<li class="inlineDiv"> <a href="./about.html" target="_blank">About </a></li>
+			<li class="inlineDiv" onmouseover="showsubmenu(this)" onmouseout="hidesubmenu(this)"> <a href="#" target="_blank">Contact </a>
+				
+			</li>
+			<li class="inlineDiv"> <a href="#" target="_blank">Github </a></li>
+		
+			
+		</ul>
+	</div>
+	</div>
+	<!-- <div style="height:15px;width:100%;position:absolute;top:50px;background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);"></div> -->
+	<div style="height:15px;width:100%;position:absolute;top:50px;background: linear-gradient(to bottom, rgba(113,150,168,0.8) 0%,rgba(211,231,238,0) 100%);"></div>
+
+<script type="text/javascript">
+	function showsubmenu(li){
+		var submenu=li.getElementsByTagName("ul")[0];
+		submenu.style.display="block";
+	}
+
+	function hidesubmenu(li){
+		var submenu=li.getElementsByTagName("ul")[0
+
+		submenu.style.display="none";
+	}
+</script>
+</body></html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>My Travel Plan</title>
+	<link rel="stylesheet" type="text/css" href="./style/initializa.css">
+	<!-- 为什么不能用于初始化？？ -->
+</head>
+<style type="text/css">
+	body{
+		margin:0 auto;
+	}
+	ul, ol { 
+		list-style:none;
+		font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif; 
+	}
+	label{
+
+		margin-left: 5px;
+		/*background-color: grey;*/
+		width:40%;/*display:block;*/
+		float: left;
+	}
+	span{
+
+		/*background-color: blue;*/
+		/*float: left;*/
+
+	}
+	form{
+		width: 500px;
+	}
+	
+	.travelForm{
+		width: 500px;
+
+		text-align: center;
+		background-color: #3ab2a6;
+		position:absolute;left:50%;top:100px;margin-left:-250px;
+		border-radius:10px ;
+	}
+	.headTitle{
+		margin: 0 auto;
+		height: 60px;
+		background-color:#FF6F69; 
+		border-radius:8px ;
+		color: #ffcc5c;
+		font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+		font-size: 40px;
+		vertical-align: middle;
+		text-shadow: 4px -4px 8px #E6E6E6;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+	.formContent{
+		text-align: left;
+		float: left;
+		margin-top: 30px;
+	}
+	.planSub{
+		width: 300px;
+		height: 40px;
+		background-color: #FF6F69;
+		box-shadow:4px 4px 6px #666 ; 
+		text-align: center;
+		border-radius: 10px ;
+
+		margin-top:30px;
+		margin-left: 55px;
+	}
+</style>
+<body>
+	<div class="container">
+		<iframe src="./headers/header.html" height="100px" width="100%" scrolling="no" style="border:0px;position: absolute; top:0px;z-index: 999999999;"></iframe>
+		<div class="travelForm">
+			<div class="headTitle">My Travel Plan</div>
+			<div class="formContent">
+				<form>
+					<ul>
+						<li>
+					<label for="planName">Plan Name :</label>
+					<span>
+						<input id="planName" type="text" placeholder="Travel To UK" onblur="getplanName();" onkeydown="return ClearSubmit(event)" > Plan</span>
+					</li>
+				<li>
+					<label for="planWhere">Place :</label>
+					<span>
+						<input id="planWhere" type="text" placeholder="UK" onblur="getplanWhere();" onkeydown="return ClearSubmit(event)" > Country</span>
+					</li>
+						<li>
+							<label for="planDate">Date:</label>
+							<span>
+								<input id="planDate" type="text" placeholder="占坑" onblur="getplanDate();" onkeydown="return ClearSubmit(event)" > Date</span>
+						</li>
+				<!-- <li>
+					<label for="height">Height: </label>
+					<span>
+						<select id="height">
+							<option value="54">54</option>
+							<option value="55">55</option>
+							<option value="56">56</option>
+							<option value="57">57</option>
+							<option value="58">58</option>
+
+						</select>
+						inches
+					</span>
+				</li> 
+				<li>
+					<label></label>
+					<span><input id="current_weight" type="text" placeholder="180">
+						dasd
+					</span>
+				</li>-->
+				<li>
+					<label for="planBudget">Budget:</label>
+					<br>
+				</li>
+				<li>
+					<label for="planBudget">airplane ticket:</label>
+					<span>
+						<input id="planBudget" type="text" placeholder="airplane ticket" onblur="getA();" onkeydown="return ClearSubmit(event)" > RMB</span>
+				</li>
+				<li>
+					<label for="planTran">Transportation:</label>
+					<span>
+						<input id="planTran" type="text" placeholder="transportation" onblur="getB();" onkeydown="return ClearSubmit(event)" > RMB</span>
+					</li>
+					<li>
+						<label for="planHotel">Hotel fare:</label>
+						<span>
+							<input id="planHotel" type="text" placeholder="Hotel" onblur="getC();" onkeydown="return ClearSubmit(event)" > RMB</span>
+						</li>
+						<li>
+							<label for="planTotal">Total:</label>
+							<span>
+								<input id="planTotal" type="text" placeholder="total" onkeydown="return ClearSubmit(event)" > RMB</span>
+							</li>
+							<li>
+								<button class="planSub" onclick="submitForm()">Submit</button>
+							</li>
+						</ul>
+					</form>
+				</div>
+			</div>
+		</div>
+</body>
+
+</html>
+<script type="text/javascript">
+	var a=0;
+	var b=0;		
+	var c=0;
+	var budget=document.getElementById("planBudget");
+	var tran=document.getElementById("planTran");	
+	var hotel=document.getElementById("planHotel");
+	var total=document.getElementById("planTotal");
+
+	function getplanName(){
+		var budget=document.getElementById("planName").value;
+	}
+
+	function getA(){
+		//判断budget是否为空，是则a赋值为0，否则赋值为budget.value
+		a = budget.value.trim()==""? 0:budget.value;
+		//若用户未输入内容，自动填充为0
+		if(budget.value.trim()==""){
+			budget.value=0;
+		}
+		//判断输入是否合法
+		if(!valiNum(a)){
+			budget.value="";
+			budget.focus();
+			total.value="";
+			return;
+		}
+		//计算总和
+		sumUp();	
+	}
+	function getB(){
+		b = tran.value.trim()==""? 0:tran.value;
+		if(tran.value.trim()==""){
+			tran.value=0;
+		}
+		if(!valiNum(b)){
+			tran.value="";
+			tran.focus();
+			total.value="";
+			return;
+		}
+		sumUp();
+	}
+	function getC(){
+		c = hotel.value.trim()==""? 0:hotel.value;
+		if(hotel.value.trim()==""){
+			hotel.value=0;
+		}
+		if(!valiNum(c)){
+			hotel.value="";
+			hotel.focus();
+			total.value="";
+			return;
+		}
+		sumUp();
+	}
+	
+	function sumUp(){
+		//判断所有输入是否合法
+		if(!valiNum(a)||!valiNum(b)||!valiNum(c)){
+			return;
+		}
+		var sum = parseFloat(a)+parseFloat(b)+parseFloat(c);
+		//取两位小数
+		sum = sum.toFixed(2);
+		document.getElementById("planTotal").value=sum;
+	}
+
+
+
+	var reg = new RegExp("^[0-9]+(.[0-9]{1,3})?$" ); 
+	function valiNum(num){
+		if(!reg.test(num)){
+			alert("请输入数字!");
+			return false;
+		}else{
+			return true;
+		}
+	}
+
+	var con=document.getElementsByTagName("input");
+	function submitForm(){
+		if (document.getElementById("planName").value==null||document.getElementById("planWhere").value==null||document.getElementById("planDate").value==null||document.getElementById("planBudget").value==null) {
+			alert("请填写完整");
+			return;
+		}
+
+		// for (var i=0; i<con.length;i++){
+
+		// 	alert(con.value);
+		// 	if(con.value!==null){
+		// 		alert("请填写完整");
+		// 		return;
+		// 	}
+		// }
+		alert("Submit successful !");
+	}
+
+
+	function ClearSubmit(e) {             
+		if (e.keyCode == 13) {                 
+			return false;             
+		}    
+	}
+</script>

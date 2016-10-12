@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Rainbow Sum Up</title>
+</head>
+<style type="text/css">
+	body{
+		margin: 0 auto;
+	}
+	table{
+		width: 1200px;
+		margin-left: 20px;
+		margin-top: 40px;
+		border:solid grey; border-width:1px 0px 0px 1px;
+
+	}
+	td{
+		width: 600px;
+		word-wrap:normal|break-word;
+		border:solid grey; border-width:0px 1px 1px 0px;
+	}
+	tr{
+		width: 1200px;
+		border:solid grey; border-width:0px 1px 1px 0px;
+
+	}
+</style>
+<body>
+	<table>
+		<tr>
+			<td>弹出窗口居中显示</td>
+			<td><xmp> <a href="#" onclick="openwindow('rainbow-SumUp.html','Rainbow Sum Up',600,600)">Sum Up</a> </xmp> <br/><xmp><script type="text/javascript">
+	function openwindow(url,name,iWidth,iHeight)
+	{
+	var url; //转向网页的地址;
+	var name; //网页名称，可为空;
+	var iWidth; //弹出窗口的宽度;
+	var iHeight; //弹出窗口的高度;
+	//window.screen.height获得屏幕的高，window.screen.width获得屏幕的宽
+	var iTop = (window.screen.height-30-iHeight)/2; //获得窗口的垂直位置;
+	var iLeft = (window.screen.width-10-iWidth)/2; //获得窗口的水平位置;
+	window.open(url,name,'height='+iHeight+',,innerHeight='+iHeight+',width='+iWidth+/
+		',innerWidth='+iWidth+',top='+iTop+',left='+iLeft+',toolbar=no,menubar=no,scrollbars=auto,resizeable=no,location=no,status=no');
+	}
+</script> </xmp></td>
+		</tr>
+
+		<tr>
+			<td>CSS3D动态效果</td>
+			<td><xmp>
+	#page1{
+     	-webkit-transition:background-color 3s ease-in;
+		-webkit-transition:height 5s ease-in;  <!-- ease-in,ease-out,ease,linear,ease-in-out -->
+	}
+	#page1:hover{
+     	background-color:#8192D6;
+     	height: 800px;
+     	-webkit-transform:rotateY(10deg);<!-- rotateX,Y,Z -->
+	}
+	
+	</xmp> </td>
+		</tr>
+
+		<tr>
+			<td>在网页中居中显示</td>
+			<td><xmp>position:absolute;width:600px;height:600px;left:50%;top:50%;margin-left:-300px;margin-top:-300px;</xmp></td>
+		</tr>
+
+		<tr>
+			<td>加载本地字体</td>
+			<td><xmp>
+	@font-face {
+        font-family: "FZSTK Font";
+        src: url("./FZSTK.ttf");
+    }
+    .fontFace{
+        width: 340px;
+        padding:  10px 0;
+        font-size:58px;
+        font-family: "FZSTK Font";    /*必须项，设置@font-face中font-family同样的值*/
+    }</xmp></td>
+		</tr>
+
+		<tr>
+			<td>优先级</td>
+			<td><xmp>!important</xmp></td>
+		</tr> 
+
+		<tr>
+			<td>JS更改background-color</td>
+			<td><xmp>document.getElementById("page1").style.backgroundColor='#8192D6'; <!--backgroundColor--></xmp></td>
+		</tr> 
+
+		<tr>
+			<td>嵌入header</td>
+			<td><xmp><iframe src="header.html" height="100px" width="100%" scrolling="no" style="border:0px;position: absolute; top:0px;z-index: 999999999;"></iframe></xmp></td>
+		</tr> 
+		<!-- 
+		<tr>
+			<td></td>
+			<td><xmp></xmp></td>
+		</tr> 
+		-->
+
+	</table>
+</body>
+</html>

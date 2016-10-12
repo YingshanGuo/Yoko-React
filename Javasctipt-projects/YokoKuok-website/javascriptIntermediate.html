@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>getAttribute()</title>
+</head>
+<body>   
+
+<form>
+  请选择你爱好:<br>
+  <input type="checkbox" name="hobby" id="hobby1">  音乐
+  <input type="checkbox" name="hobby" id="hobby2">  登山
+  <input type="checkbox" name="hobby" id="hobby3">  游泳
+  <input type="checkbox" name="hobby" id="hobby4">  阅读
+  <input type="checkbox" name="hobby" id="hobby5">  打球
+  <input type="checkbox" name="hobby" id="hobby6">  跑步 <br>
+  <input type="button" value = "全选" onclick = "checkall();">
+  <input type="button" value = "全不选" onclick = "clearall();">
+  <p>请输入您要选择爱好的序号，序号为1-6:</p>
+  <input id="wb" name="wb" type="text" >
+  <input name="ok" type="button" value="确定" onclick = "checkone();">
+</form>
+
+<div>
+<p id="intro">课程列表</p>  
+    <ul>  
+        <li title="第1个li">HTML</li>  
+        <li>CSS</li>  
+        <li title="第3个li">JavaScript</li>  
+        <li title="第4个li">Jquery</li>  
+        <li>Html5</li>  
+    </ul>  
+<p>以下为获取的不为空的li标签title值:</p>
+<div class="notNull"></div>
+</div>
+
+  <p id="intro">我的课程</p>  
+  <ul>  
+    <li title="JS">JavaScript</li>  
+    <li title="JQ">JQuery</li>  
+    <li title="">HTML/CSS</li>  
+    <li title="JAVA">JAVA</li>  
+    <li title="">PHP</li>  
+  </ul>  
+  <h1>以下为li列表title的值,当title为空时，新设置值为"WEB前端技术":</h1>
+
+
+ 
+
+
+
+<script type="text/javascript">
+
+  function checkall(){
+            var hobby = document.getElementsByTagName("input");
+            for(i = 0;i < hobby.length;i++){
+            if(hobby[i].type == "checkbox"){
+                hobby[i].checked = true;}
+                  }
+        }
+        function clearall(){
+            var hobby = document.getElementsByName("hobby");
+            for(i = 0;i < hobby.length;i++){
+            if(hobby[i].type == "checkbox"){
+                hobby[i].checked = false;}
+        }        
+      }
+        function checkone(){
+            var j=document.getElementById("wb").value;
+            var hobby = document.getElementById("hobby"+j);
+            hobby.checked = true;    }   
+
+    var con=document.getElementsByTagName("li");
+    var notNulltext=document.getElementById("notNull");
+    for (var i=0; i< con.length;i++){
+      var text=con[i].getAttribute("title");
+      if(text!=null)
+      {
+        document.write(text+"<br>");
+        notNulltext.innerHTML=text+"<br>";
+      }
+    } 
+
+  var Lists=document.getElementsByTagName("li");
+  for (var i=0; i<Lists.length;i++)
+  {
+    var text=Lists[i].getAttribute("title");
+    document.write(text +"<br>");
+    if(text=="")
+    {
+    Lists[i].setAttribute("title","web前端技术");
+    document.write(Lists[i].getAttribute("title")+"<br>");
+          
+
+    }
+  }       
+
+ </script> 
+</body>
+</html>
